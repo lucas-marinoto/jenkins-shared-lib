@@ -13,7 +13,8 @@ def main():
 
     # Simulating an error with a custom message
     try:
-        raise ValueError("This is a simulated error!")
+        raise Exception("This is a simulated error!")
+        # raise ValueError("This is a simulated error!")
     except ValueError as e:
         logging.error(f"An error occurred: {e}")
         sys.exit(1)  # Exit with an error code
