@@ -31,10 +31,10 @@ def call(String dockerImage, String scriptName) {
 
     // Verifica o status de saída e exibe a mensagem apropriada
     if (result != 0) {
-        LogUtils.error("Python script failed with status: ${result}")
+        LogUtils.error(this, "Python script failed with status: ${result}")
         currentBuild.result = 'FAILURE'
         error("Build failed due to errors in the Python script.")
     } else {
-        LogUtils.success("Python script executed successfully.")
+        LogUtils.success(this, "Python script executed successfully.")
     }
 }
