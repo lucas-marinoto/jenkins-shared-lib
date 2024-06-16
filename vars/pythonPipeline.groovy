@@ -13,8 +13,8 @@ import org.jenkins.utils.LogUtils
 import org.jenkins.utils.BranchUtils
 
 def call(String dockerImage, String scriptName) {
-    echo "branchName: ${branchName}"
     def branchName = env.gitlabSourceBranch
+    echo "branchName: ${branchName}"
     if (!BranchUtils.isValidBranch(branchName)) {
         LogUtils.error(this, "Invalid branch name: ${branchName}")
         currentBuild.result = 'FAILURE'
