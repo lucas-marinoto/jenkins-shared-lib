@@ -2,11 +2,11 @@ package org.jenkins.utils
 
 class LogUtils {
     static void info(script, String message) {
-        script.echo "INFO: 💡 -  ${message}"
+        script.echo "INFO: ${message}"
     }
 
     static void warning(script, String message) {
-        script.echo "WARNING: ⚠️ -  ${message}"
+        script.echo "WARNING: ${message}"
     }
 
     static void error(script, String message) {
