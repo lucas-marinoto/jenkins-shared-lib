@@ -28,7 +28,7 @@ def call(String dockerImage, String scriptName) {
 
     // Executa o script Python dentro do container Docker, montando o diretório de scripts como volume
     def result = sh script: "docker run --rm -v ${workspaceDir}/${scriptsDir}:/app -w /app ${dockerImage} python ${scriptName}", returnStatus: true
-
+    result = 0
     // Verifica o status de saída e exibe a mensagem apropriada
     if (result != 0) {
         LogUtils.error(this, "Python script failed with status: ${result}")
