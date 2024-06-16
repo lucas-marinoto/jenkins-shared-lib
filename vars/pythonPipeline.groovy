@@ -9,14 +9,6 @@
 //     sh "docker run --rm -v ${pwd()}:/app -w /app ${dockerImage} python ${scriptName}"
 // }
 
-// vars/pythonPipeline.groovy
-
-// vars/pythonPipeline.groovy
-
-// vars/pythonPipeline.groovy
-
-// vars/pythonPipeline.groovy
-
 import org.jenkins.utils.LogUtils
 
 def call(String dockerImage, String scriptName) {
