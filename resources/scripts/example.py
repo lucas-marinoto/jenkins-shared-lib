@@ -1,11 +1,22 @@
-# resources/scripts/example.py
+import logging
+import sys
 
-print("Starting the Python script...")
+# Configuração básica do logger
+logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
 
-print("This is a simple print statement.")
+def main():
+    logging.info("Starting the Python script...")
 
-# Simulating an error
-print("Simulating an error:")
-raise ValueError("This is a simulated error!")
+    logging.info("This is an info message.")
+    logging.warning("This is a warning message.")
+    logging.error("This is an error message.")
 
-print("This line will not be executed due to the error above.")
+    # Simulating an error with a custom message
+    try:
+        raise ValueError("This is a simulated error!")
+    except ValueError as e:
+        logging.error(f"An error occurred: {e}")
+        sys.exit(1)  # Exit with an error code
+
+if __name__ == "__main__":
+    main()
