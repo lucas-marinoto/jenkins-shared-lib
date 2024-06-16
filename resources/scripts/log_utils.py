@@ -8,17 +8,16 @@ def setup_logger():
 
 def log_info(message):
     logger = logging.getLogger()
-    logger.info("\U0001F4A1 " + message)
+    logger.info("[INFO] " + message)
 
 def log_warning(message):
     logger = logging.getLogger()
-    logger.warning("\u26A0\ufe0f " + message)
+    logger.warning("[WARNING] " + message)
 
 def log_error(message):
     logger = logging.getLogger()
-    logger.error("\u274C " + message)
+    logger.error("[ERROR] " + message)
 
 def log_error_and_exit(message):
-    log_error("\u274C " + message)
+    log_error(message)
     sys.exit(1)
-
