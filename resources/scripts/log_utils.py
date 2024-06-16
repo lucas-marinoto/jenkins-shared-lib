@@ -1,4 +1,5 @@
 import logging
+import sys
 
 def setup_logger():
     # Configuração básica do logger
