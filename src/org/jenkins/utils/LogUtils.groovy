@@ -2,18 +2,24 @@ package org.jenkins.utils
 
 class LogUtils {
     static void info(String message) {
-        echo "INFO: ${message}"
+        echoMessage("INFO", message)
     }
 
     static void warning(String message) {
-        echo "WARNING: ${message}"
+        echoMessage("WARNING", message)
     }
 
     static void error(String message) {
-        echo "ERROR: ${message}"
+        echoMessage("ERROR", message)
     }
 
     static void success(String message) {
-        echo "SUCCESS: ${message}"
+        echoMessage("SUCCESS", message)
+    }
+
+    private static void echoMessage(String level, String message) {
+        // Utiliza o método echo no contexto do pipeline
+        def script = new groovy.lang.GroovyShell().evaluate("script")
+        script.echo "${level}: ${message}"
     }
 }
