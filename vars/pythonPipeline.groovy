@@ -55,3 +55,7 @@ def call(String dockerImage, String scriptName) {
         LogUtils.success(this, "Python script executed successfully.")
     }
 }
+
+def logs(message){
+    LogUtils.success(this, message)
+}
