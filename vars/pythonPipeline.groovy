@@ -25,6 +25,9 @@ def call(String dockerImage, String scriptName) {
         error("Build failed due to invalid pull request.")
         return
     }
+    else{
+        LogUtils.success(this, "Valid pull request: ${sourceBranch} to ${targetBranch}")
+    }
 
     def scriptsDir = 'scripts'
     def workspaceDir = pwd()
