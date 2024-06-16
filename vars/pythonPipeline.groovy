@@ -15,6 +15,10 @@
 
 // vars/pythonPipeline.groovy
 
+// vars/pythonPipeline.groovy
+
+import org.jenkins.utils.LogUtils
+
 def call(String dockerImage, String scriptName) {
     def scriptsDir = 'scripts'
     def workspaceDir = pwd()
@@ -35,10 +39,10 @@ def call(String dockerImage, String scriptName) {
 
     // Verifica o status de saída e exibe a mensagem apropriada
     if (result != 0) {
-        logUtils.error("Python script failed with status: ${result}")
+        LogUtils.error("Python script failed with status: ${result}")
         currentBuild.result = 'FAILURE'
         error("Build failed due to errors in the Python script.")
     } else {
-        logUtils.success("Python script executed successfully.")
+        LogUtils.success("Python script executed successfully.")
     }
 }
