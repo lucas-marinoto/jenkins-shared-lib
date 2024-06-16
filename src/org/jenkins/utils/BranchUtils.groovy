@@ -22,4 +22,16 @@ class BranchUtils {
         println "Is branch valid: ${isValid}"
         return isValid
     }
+
+    static boolean isValidPullRequest(String sourceBranch, String targetBranch) {
+        println "Validating branch sourceBranch: ${sourceBranch}"
+        println "Validating branch targetBranch: ${targetBranch}"
+        if (isDevBranch(sourceBranch) && isHmlBranch(targetBranch)) {
+            return true
+        } else if (isHmlBranch(sourceBranch) && isMasterBranch(targetBranch)) {
+            return true
+        } else {
+            return false
+        }
+    }
 }

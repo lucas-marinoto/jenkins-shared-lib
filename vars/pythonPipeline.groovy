@@ -13,12 +13,16 @@ import org.jenkins.utils.LogUtils
 import org.jenkins.utils.BranchUtils
 
 def call(String dockerImage, String scriptName) {
-    def branchName = env.gitlabSourceBranch
-    echo "branchName: ${branchName}"
-    if (!BranchUtils.isValidBranch(branchName)) {
-        LogUtils.error(this, "Invalid branch name: ${branchName}")
+    def sourceBranch = env.gitlabSourceBranch
+    def targetBranch = env.gitlabTargetBranch
+
+    println "Running pipeline for pull request from ${sourceBranch} to ${targetBranch}"
+
+    // Verifica se o pull request é válido
+    if (!BranchUtils.isValidPullRequest(sourceBranch, targetBranch)) {
+        LogUtils.error(this, "Invalid pull request: ${sourceBranch} to ${targetBranch}")
         currentBuild.result = 'FAILURE'
-        error("Build failed due to invalid branch name.")
+        error("Build failed due to invalid pull request.")
         return
     }
 
