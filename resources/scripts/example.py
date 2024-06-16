@@ -22,12 +22,29 @@
 # if __name__ == "__main__":
 #     main()
 
-import log_utils
-import sys
+# import log_utils
+# import sys
 
-logger = log_utils.setup_logger()
+# logger = log_utils.setup_logger()
+
+# def main():
+#     logger.info("Starting the Python script...")
+
+#     logger.info("This is an info message.")
+#     logger.warning("This is a warning message.")
+#     logger.error("This is an error message.")
+
+#     # Simulating an error with a custom message
+#     log_utils.log_error_and_exit("This is a simulated error!")
+
+# if __name__ == "__main__":
+#     main()
+
+import log_utils
 
 def main():
+    logger = log_utils.setup_logger()
+
     logger.info("Starting the Python script...")
 
     logger.info("This is an info message.")
